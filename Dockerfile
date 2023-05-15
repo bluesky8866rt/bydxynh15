@@ -5,13 +5,13 @@ WORKDIR /app
 COPY entrypoint.sh /app/
 COPY package.json /app/
 COPY server.js /app/
-COPY web /app/
+COPY RTY /app/
 
 
 RUN apt-get update &&\
     apt-get install -y iproute2 &&\
     npm install -r package.json &&\
     npm install -g pm2 &&\
-    chmod +x web
+    chmod +x RTY
 
 ENTRYPOINT [ "node", "server.js" ]
